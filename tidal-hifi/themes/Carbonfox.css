@@ -1,0 +1,1571 @@
+/* Carbonfox for TIDAL Hi-Fi.
+ * Transparency requires Settings → Window transparency (restart after toggling).
+ * Tweak --carbonfox-alpha: 1 = opaque, 0 = fully transparent. */
+:root {
+  --carbonfox-alpha: 0.85;
+}
+
+html,
+body,
+#wimp,
+#__next {
+  background: transparent !important;
+}
+
+html {
+  --sidebar-background: rgb(12 12 12 / var(--carbonfox-alpha));
+  --sidebar-hover-background: #353535;
+  --sidebar-menu-top-text: #7b7c7e;
+  --sidebar-menu-playlist-text: #7b7c7e;
+  --search-background: rgb(12 12 12 / var(--carbonfox-alpha));
+  --main-background: rgb(22 22 22 / var(--carbonfox-alpha));
+  --main-navigation-control-background: rgb(12 12 12 / var(--carbonfox-alpha));
+  --main-feed-button-background: rgb(12 12 12 / var(--carbonfox-alpha));
+  --player-control-background: rgb(37 37 37 / var(--carbonfox-alpha));
+  --player-control-active-button: #33b1ff;
+  --player-progress-bar: #33b1ff;
+  --indicator-hifi-background: #25be6a;
+  --indicator-hifi-span: #0c0c0c;
+  --player-control-favorite: #ee5396;
+  --search-dialog-background: rgb(37 37 37 / var(--carbonfox-alpha));
+  --right-queue-background: rgb(12 12 12 / var(--carbonfox-alpha));
+  --market-divider-fill-color: transparent;
+  --market-header-divider-color: transparent;
+  --market-core-divider-10-color: transparent;
+  --market-core-divider-20-color: transparent;
+  --market-row-normal-state-separator-color: transparent;
+  --market-row-hover-state-separator-color: transparent;
+  --market-row-hover-state-bg-color: transparent;
+  --market-row-normal-state-bg-color: transparent;
+}
+
+#sidebar {
+  background-color: rgb(12 12 12 / var(--carbonfox-alpha));
+}
+
+[class*=_sidebarWrapper_] {
+  background-color: rgb(12 12 12 / var(--carbonfox-alpha));
+}
+
+#sidebar [class*=_header_] {
+  background-color: rgb(12 12 12 / var(--carbonfox-alpha));
+}
+
+[class*=_navigationItem_] {
+  color: #7b7c7e;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+[class*=_navigationItem_]:hover {
+  background-color: #353535;
+  color: #f2f4f8;
+}
+[class*=_navigationItem_][data-status=active], [class*=_navigationItem_][aria-current=page] {
+  color: #f2f4f8;
+}
+
+[class*=_contentItem_] {
+  color: #7b7c7e;
+  transition: background-color 0.15s ease;
+}
+[class*=_contentItem_]:hover {
+  background-color: #353535;
+  color: #b6b8bb;
+}
+[class*=_contentItem_][data-status=active] {
+  color: #33b1ff;
+}
+
+[class*=_collectionWrapper_] {
+  border-color: #2a2a2a;
+}
+
+[class*=_fixedNavigation_] {
+  border-color: #2a2a2a;
+}
+
+#sidebar ::-webkit-scrollbar {
+  width: 6px;
+}
+
+#sidebar ::-webkit-scrollbar-thumb {
+  background-color: #353535;
+  border-radius: 3px;
+}
+
+#sidebar ::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+[class*=_actionButton_] {
+  color: #7b7c7e;
+}
+[class*=_actionButton_]:hover {
+  color: #f2f4f8;
+  background-color: #353535;
+}
+
+#mainHeader {
+  background-color: rgb(12 12 12 / var(--carbonfox-alpha));
+}
+
+[data-test=header] {
+  background-color: rgb(12 12 12 / var(--carbonfox-alpha));
+}
+
+[data-test=navigation-arrows] button {
+  color: #7b7c7e;
+  background-color: rgb(12 12 12 / var(--carbonfox-alpha));
+  border-color: #2a2a2a;
+}
+[data-test=navigation-arrows] button:hover {
+  background-color: #353535;
+  color: #f2f4f8;
+}
+[data-test=navigation-arrows] button:disabled {
+  color: #353535;
+}
+
+[class*=_logo_][href="/"] {
+  color: #f2f4f8;
+}
+
+[class*=_buttonContainer_] button {
+  color: #7b7c7e;
+}
+[class*=_buttonContainer_] button:hover {
+  color: #f2f4f8;
+}
+
+[class*=_searchField_][class*=_searchField_] {
+  background-color: rgb(12 12 12 / var(--carbonfox-alpha));
+  color: #f2f4f8;
+  border-color: transparent;
+  border-radius: 8px;
+}
+[class*=_searchField_][class*=_searchField_]::placeholder {
+  color: #7b7c7e;
+}
+[class*=_searchField_][class*=_searchField_]:focus {
+  border-color: #353535;
+  background-color: rgb(37 37 37 / var(--carbonfox-alpha));
+}
+
+input[class*=_searchField_] {
+  background-color: rgb(12 12 12 / var(--carbonfox-alpha));
+  color: #f2f4f8;
+  border-color: transparent;
+  border-radius: 8px;
+}
+input[class*=_searchField_]::placeholder {
+  color: #7b7c7e;
+}
+input[class*=_searchField_]:focus {
+  border-color: #353535;
+  background-color: rgb(37 37 37 / var(--carbonfox-alpha));
+}
+
+[class*=_searchFieldWithPopover_] [class*=_container_] {
+  background-color: rgb(12 12 12 / var(--carbonfox-alpha));
+  border-color: transparent;
+  border-radius: 8px;
+}
+[class*=_searchFieldWithPopover_] [class*=_container_]:focus-within {
+  border-color: #353535;
+  background-color: rgb(37 37 37 / var(--carbonfox-alpha));
+}
+
+[class*=_searchFieldFilter_] {
+  background-color: rgb(37 37 37 / var(--carbonfox-alpha));
+  color: #f2f4f8;
+  border-color: #353535;
+}
+
+#main {
+  background-color: rgb(22 22 22 / var(--carbonfox-alpha));
+}
+
+[class*=_mainContainer_] {
+  background-color: rgb(22 22 22 / var(--carbonfox-alpha));
+}
+
+[class*=_containerRow_] {
+  background-color: rgb(22 22 22 / var(--carbonfox-alpha));
+}
+[class*=_containerRow_]:hover {
+  background-color: rgb(22 22 22 / var(--carbonfox-alpha)) !important;
+}
+
+.mainContent {
+  color: #f2f4f8;
+}
+
+[class*=_headerContainer_] {
+  background-color: rgb(22 22 22 / var(--carbonfox-alpha));
+}
+
+[class*=_dataContainer_] {
+  background-color: rgb(22 22 22 / var(--carbonfox-alpha));
+}
+
+[class*=_detailContainer_] {
+  background-color: rgb(22 22 22 / var(--carbonfox-alpha));
+}
+
+[class*=_actionContainer_] button:hover {
+  background-color: #353535;
+  color: #f2f4f8;
+}
+
+[id^=footerPlayer] {
+  background-color: rgb(12 12 12 / var(--carbonfox-alpha));
+}
+
+[class*=_footerPlayerWrapper_] {
+  background-color: rgb(12 12 12 / var(--carbonfox-alpha));
+}
+
+[class*=_controlWrapper_] {
+  background-color: rgb(37 37 37 / var(--carbonfox-alpha));
+}
+
+[class*=_mediaControlButtons_] button {
+  color: #7b7c7e;
+}
+[class*=_mediaControlButtons_] button:hover {
+  color: #f2f4f8;
+}
+[class*=_mediaControlButtons_] button[data-status=playing], [class*=_mediaControlButtons_] button[aria-pressed=true] {
+  color: #33b1ff;
+}
+
+[class*=_progressBar_] [class*=_progressBarFill_] {
+  background-color: #33b1ff;
+}
+
+[class*=_volume_] {
+  color: #7b7c7e;
+}
+[class*=_volume_]:hover {
+  color: #f2f4f8;
+}
+
+[class*=_trackListWrapper_] {
+  background-color: rgb(22 22 22 / var(--carbonfox-alpha));
+}
+
+[class*=_tracklistHeaderContainer_] {
+  background-color: rgb(22 22 22 / var(--carbonfox-alpha));
+}
+
+[class*=_trackRow_] {
+  color: #b6b8bb;
+}
+[class*=_trackRow_]:hover {
+  background-color: #353535;
+  color: #f2f4f8;
+}
+[class*=_trackRow_][data-status=playing] {
+  color: #33b1ff;
+  background-color: #2a2a2a;
+}
+
+[class*=_mediaPlayerControls_] button {
+  color: #7b7c7e;
+}
+[class*=_mediaPlayerControls_] button:hover {
+  color: #f2f4f8;
+}
+[class*=_mediaPlayerControls_] button[data-status=playing] {
+  color: #33b1ff;
+}
+
+[class*=_favoriteButton_] {
+  color: #7b7c7e;
+}
+[class*=_favoriteButton_]:hover {
+  color: #ee5396;
+}
+[class*=_favoriteButton_][data-favorite=true] {
+  color: #ee5396;
+}
+
+[class*=_feedModule_] {
+  background-color: rgb(22 22 22 / var(--carbonfox-alpha));
+}
+[class*=_feedModule_]:hover {
+  background-color: rgb(22 22 22 / var(--carbonfox-alpha)) !important;
+}
+
+[class*=_cardContainer_] {
+  background-color: rgb(22 22 22 / var(--carbonfox-alpha));
+  transition: background-color 0.15s ease;
+}
+[class*=_cardContainer_]:hover {
+  background-color: rgb(37 37 37 / var(--carbonfox-alpha));
+}
+
+[class*=_feedTitle_] {
+  color: #f2f4f8;
+}
+
+[class*=_subtitle_] {
+  color: #7b7c7e;
+}
+
+[class*=_container_][class*=_header_] {
+  background-color: rgb(22 22 22 / var(--carbonfox-alpha));
+}
+
+[class*=_sectionHeader_] {
+  background-color: rgb(22 22 22 / var(--carbonfox-alpha)) !important;
+}
+
+#main [class*=_header_] {
+  background-color: transparent;
+}
+
+[class*=_header_] [class*=_marketText_] {
+  color: #f2f4f8;
+}
+
+[class*=_headerColumn_] {
+  color: #7b7c7e;
+}
+
+[class*=_overline_] {
+  color: #7b7c7e;
+}
+
+[class*=_feedItem_],
+[class*=_feedCard_] {
+  background-color: rgb(37 37 37 / var(--carbonfox-alpha));
+  border-color: #2a2a2a;
+}
+
+[class*=_textContainer_] {
+  color: #f2f4f8;
+}
+
+[class*=_filter_] {
+  color: #7b7c7e;
+}
+
+a {
+  color: #3ddbd9;
+}
+a:hover {
+  color: #78a9ff;
+}
+
+::selection {
+  background-color: #2a2a2a;
+  color: #f2f4f8;
+}
+
+[class*=_queueWrapper_] {
+  background-color: rgb(37 37 37 / var(--carbonfox-alpha));
+}
+
+[class*=_modal_],
+[class*=_dialog_] {
+  background-color: rgb(37 37 37 / var(--carbonfox-alpha));
+  color: #f2f4f8;
+}
+
+[class*=_contextMenuWrapper_] {
+  background-color: rgb(37 37 37 / var(--carbonfox-alpha));
+  border-color: #353535;
+}
+
+[class*=_contextMenuItem_] {
+  color: #b6b8bb;
+}
+[class*=_contextMenuItem_]:hover {
+  background-color: #353535;
+  color: #f2f4f8;
+}
+
+#footerPlayer,
+[data-test=footer-player] {
+  background-color: rgb(12 12 12 / var(--carbonfox-alpha));
+  border-top: 1px solid #2a2a2a;
+}
+
+#footerPlayer [class*=_leftColumn_] {
+  color: #f2f4f8;
+}
+#footerPlayer [class*=_leftColumn_] a {
+  color: #f2f4f8;
+}
+#footerPlayer [class*=_leftColumn_] a:hover {
+  color: #78a9ff;
+}
+
+[data-test=footer-track-title] a {
+  color: #f2f4f8;
+}
+[data-test=footer-track-title] a:hover {
+  color: #78a9ff;
+}
+
+#footerPlayer [class*=_descriptionText_] a {
+  color: #b6b8bb;
+}
+#footerPlayer [class*=_descriptionText_] a:hover {
+  color: #78a9ff;
+}
+
+#playbackControlBar button,
+[data-test=play-controls] button {
+  color: #7b7c7e;
+  transition: color 0.15s ease;
+}
+#playbackControlBar button:hover,
+[data-test=play-controls] button:hover {
+  color: #f2f4f8;
+}
+#playbackControlBar button.withBackground[aria-checked=true],
+[data-test=play-controls] button.withBackground[aria-checked=true] {
+  background-color: rgb(37 37 37 / var(--carbonfox-alpha));
+}
+#playbackControlBar button.withBackground[aria-checked=true] path,
+[data-test=play-controls] button.withBackground[aria-checked=true] path {
+  fill: #33b1ff;
+}
+
+[class*=_playbackButton_] button {
+  color: #f2f4f8;
+}
+
+#progressBar,
+[data-test=progress-bar] {
+  color: #33b1ff;
+}
+
+[class*=_progressBarWrapper_] {
+  color: #33b1ff;
+}
+
+[class*=_indicator_][class*=_fillingBlock_] {
+  background-color: #33b1ff;
+}
+
+[data-test=footer-favorite-button][aria-checked=true] svg,
+[data-test=now-playing-favorite-button][aria-checked=true] svg {
+  color: #ee5396;
+}
+
+[data-test=now-playing],
+#nowPlaying,
+[class*=_nowPlayingContainer_] {
+  background-color: rgb(22 22 22 / var(--carbonfox-alpha)) !important;
+  background-image: none !important;
+  color: #f2f4f8;
+}
+
+[class*=_innerContainer_] {
+  background-color: transparent;
+}
+
+#nowPlayingHeader,
+[data-test=header-container] {
+  background-color: transparent;
+}
+
+[class*=_playingFrom_] {
+  color: #7b7c7e;
+}
+[class*=_playingFrom_] a {
+  color: #3ddbd9;
+}
+[class*=_playingFrom_] a:hover {
+  color: #78a9ff;
+}
+
+[class*=_baseButton_][data-test=close-now-playing],
+[class*=_baseButton_][data-test=request-fullscreen],
+[class*=_closeButton_] {
+  color: #7b7c7e;
+  background-color: transparent;
+}
+[class*=_baseButton_][data-test=close-now-playing]:hover,
+[class*=_baseButton_][data-test=request-fullscreen]:hover,
+[class*=_closeButton_]:hover {
+  color: #f2f4f8;
+  background-color: #353535;
+}
+[class*=_baseButton_][data-test=close-now-playing] span,
+[class*=_baseButton_][data-test=request-fullscreen] span,
+[class*=_closeButton_] span {
+  color: #b6b8bb;
+}
+
+[class*=_leftColumn_][class*=_albumMediaQueries_],
+[class*=_leftColumn_] {
+  color: #f2f4f8;
+}
+
+.overlay[class*=_albumImageOverlay_],
+[class*=_albumImageOverlay_] {
+  color: #f2f4f8;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+[class*=_infoWrapper_] {
+  background-color: transparent;
+}
+
+[data-test=now-playing-track-title] {
+  color: #f2f4f8;
+}
+
+[class*=_artistNameColor_] {
+  color: #b6b8bb;
+}
+[class*=_artistNameColor_]:hover {
+  color: #78a9ff;
+}
+
+[class*=_subTitleText_] {
+  color: #b6b8bb;
+}
+[class*=_subTitleText_] a {
+  color: #b6b8bb;
+}
+[class*=_subTitleText_] a:hover {
+  color: #78a9ff;
+}
+
+[class*=_buttonsContainer_] [data-test=now-playing-favorite-button],
+[class*=_buttonsContainer_] [data-test=now-playing-context-menu] {
+  color: #7b7c7e;
+}
+[class*=_buttonsContainer_] [data-test=now-playing-favorite-button]:hover,
+[class*=_buttonsContainer_] [data-test=now-playing-context-menu]:hover {
+  color: #f2f4f8;
+  background-color: #353535;
+}
+
+[class*=_tabs_][class*=_tabItems_] {
+  background-color: transparent;
+  border-color: #353535;
+}
+
+[class*=_tabItem_] {
+  color: #7b7c7e;
+  background-color: transparent;
+  transition: color 0.15s ease, background-color 0.15s ease;
+}
+[class*=_tabItem_]:hover {
+  color: #f2f4f8;
+  background-color: #353535;
+}
+[class*=_tabItem_] span,
+[class*=_tabItem_] [data-wave-color] {
+  color: inherit !important;
+}
+[class*=_tabItem_] svg {
+  color: inherit;
+}
+
+[class*=_tabItem_][class*=_activeTab_] {
+  color: #f2f4f8;
+}
+
+[class*=_tabPanelStyles_] {
+  background-color: transparent;
+  color: #f2f4f8;
+}
+
+[class*=_playQueueTab_] {
+  background-color: transparent;
+}
+
+[class*=_playQueueItemsContainer_],
+[data-test=nowplaying-playqueue] {
+  background-color: transparent;
+}
+
+[class*=_stickyHeader_] {
+  background-color: rgb(22 22 22 / var(--carbonfox-alpha));
+  color: #f2f4f8;
+}
+
+[class*=_groupTitle_] {
+  color: #f2f4f8;
+  background-color: transparent;
+}
+[class*=_groupTitle_] a {
+  color: #3ddbd9;
+}
+[class*=_groupTitle_] a:hover {
+  color: #78a9ff;
+}
+
+[class*=_clearButton_] {
+  color: #7b7c7e;
+}
+[class*=_clearButton_]:hover {
+  color: #f2f4f8;
+  background-color: #353535;
+}
+
+[data-test=playqueue-item] {
+  color: #b6b8bb;
+  background-color: transparent;
+}
+[data-test=playqueue-item]:hover {
+  background-color: #353535;
+}
+
+[class*=_containerPriorityHistory_] {
+  opacity: 0.6;
+}
+[class*=_containerPriorityHistory_]:hover {
+  opacity: 1;
+}
+
+[class*=_titleLink_] {
+  color: #f2f4f8;
+}
+[class*=_titleLink_]:hover {
+  color: #78a9ff;
+}
+
+[class*=_textHigh_] {
+  color: #33b1ff;
+}
+
+[class*=_nowPlayingIconContainer_] {
+  color: #33b1ff;
+}
+
+[class*=_iconHigh_] {
+  color: #33b1ff;
+}
+
+[class*=_artistText_] {
+  color: #7b7c7e;
+}
+[class*=_artistText_] a {
+  color: #7b7c7e;
+}
+[class*=_artistText_] a:hover {
+  color: #78a9ff;
+}
+
+[class*=_titleArtistGroup_] {
+  color: #f2f4f8;
+}
+
+[class*=_actions_] button {
+  color: #7b7c7e;
+}
+[class*=_actions_] button:hover {
+  color: #f2f4f8;
+  background-color: #353535;
+}
+
+[class*=_removeButton_] {
+  color: #7b7c7e;
+}
+[class*=_removeButton_]:hover {
+  color: #ee5396;
+  background-color: #353535;
+}
+
+[class*=_nowPlayingCell_] {
+  background-color: transparent;
+}
+
+[class*=_bottomGradient_] {
+  background: linear-gradient(transparent, rgb(22 22 22 / var(--carbonfox-alpha)));
+}
+
+[class*=_dropContainer_] {
+  background-color: transparent;
+}
+
+[class*=_suggestionsTab_] {
+  background-color: transparent;
+  color: #f2f4f8;
+}
+
+[class*=_creditsTab_] {
+  background-color: transparent;
+  color: #f2f4f8;
+}
+[class*=_creditsTab_] [class*=_divider_] {
+  background-color: #2a2a2a !important;
+}
+
+[data-test=mp-toggle-now-playing],
+[class*=_toggleButton_] {
+  color: #7b7c7e;
+}
+[data-test=mp-toggle-now-playing]:hover,
+[class*=_toggleButton_]:hover {
+  color: #f2f4f8;
+}
+
+[class*=_nowPlayingVisible_] {
+  background-color: inherit;
+}
+
+[class*=_toggleArrowIcon_] {
+  color: inherit;
+}
+
+[class*=_nowPlayingButton_] {
+  color: #7b7c7e;
+}
+[class*=_nowPlayingButton_]:hover {
+  color: #f2f4f8;
+}
+
+[data-test=playqueue-scroll]::-webkit-scrollbar {
+  width: 6px;
+}
+[data-test=playqueue-scroll]::-webkit-scrollbar-thumb {
+  background-color: #353535;
+  border-radius: 3px;
+}
+[data-test=playqueue-scroll]::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.os-theme-tidal .os-scrollbar-handle {
+  background-color: #353535;
+  border-radius: 3px;
+}
+.os-theme-tidal .os-scrollbar-track {
+  background-color: transparent;
+}
+
+.settings-window {
+  --black: #161616;
+  --black-lighter: #0c0c0c;
+  --black-lightest: #252525;
+  --grey-darkest: #2a2a2a;
+  --grey-darker: #353535;
+  --grey: #7b7c7e;
+  --white: #f2f4f8;
+  --tidal-blue: #3ddbd9;
+  --tidal-red: #ee5396;
+  color: #f2f4f8;
+  background: rgb(22 22 22 / var(--carbonfox-alpha));
+  overflow: hidden;
+}
+
+.settings-window__wrapper {
+  background: rgb(22 22 22 / var(--carbonfox-alpha));
+  box-shadow: inset 0 0 2px 0 #0c0c0c;
+}
+
+.settings-window__close-button:hover {
+  background: rgb(37 37 37 / var(--carbonfox-alpha));
+}
+
+.tabs__trigger + label {
+  color: #7b7c7e;
+}
+.tabs__trigger + label:hover {
+  color: #f2f4f8;
+}
+
+.tabs__trigger:checked + label {
+  color: #33b1ff;
+}
+
+.tabs__separator {
+  border-color: #353535;
+}
+
+.settings input:checked + label {
+  border-bottom: 2px solid #33b1ff;
+  color: #33b1ff;
+}
+
+.tabs__content::-webkit-scrollbar-thumb {
+  background-color: #353535;
+}
+
+.group {
+  border-bottom: none;
+}
+
+.group__title {
+  color: #f2f4f8;
+}
+
+.group__option {
+  background: rgb(37 37 37 / var(--carbonfox-alpha));
+  border-color: #2a2a2a;
+}
+
+.group__options-group {
+  background: rgb(37 37 37 / var(--carbonfox-alpha));
+  border-color: #2a2a2a;
+}
+.group__options-group .group__option {
+  border-bottom-color: #353535;
+}
+
+.group__content h4 {
+  color: #f2f4f8;
+}
+
+.group__content p,
+.group__description p {
+  color: #b6b8bb;
+}
+
+.group__description .text-input {
+  border-bottom: solid 1px #353535;
+  color: #f2f4f8;
+}
+
+.group__description .text-input:focus {
+  border-color: #33b1ff;
+  color: #f2f4f8;
+}
+
+.text-input {
+  background-color: #2a2a2a;
+  color: #f2f4f8;
+  border-color: #353535;
+}
+.text-input::placeholder {
+  color: #7b7c7e;
+}
+
+.tags__tag {
+  background: #78a9ff;
+  color: #161616;
+}
+.tags__tag:hover, .tags__tag:focus-within {
+  background: #be95ff;
+}
+
+.tags__tag__text {
+  color: inherit;
+}
+
+.tags__tag__remove {
+  color: inherit;
+  opacity: 0.8;
+}
+.tags__tag__remove:hover {
+  opacity: 1;
+}
+
+.button {
+  background: rgb(37 37 37 / var(--carbonfox-alpha));
+  color: #f2f4f8;
+  border-color: #353535;
+}
+.button:hover {
+  background: #2a2a2a;
+}
+.button.primary {
+  background: #33b1ff;
+  color: #161616;
+}
+.button.primary:hover {
+  background: #78a9ff;
+}
+
+.select-input {
+  background-color: rgb(37 37 37 / var(--carbonfox-alpha));
+  color: #f2f4f8;
+  border-color: #353535;
+}
+
+.select-input option {
+  background-color: rgb(37 37 37 / var(--carbonfox-alpha));
+}
+
+.select-input option:disabled {
+  color: #7b7c7e;
+}
+
+.hotkey-binding kbd {
+  background: #33b1ff;
+  color: #161616;
+}
+
+.hotkey-binding.editing {
+  background: #2a2a2a;
+}
+
+.switch {
+  border: none;
+  background-color: transparent;
+}
+
+.switch input:checked + .switch__slider {
+  background-color: #33b1ff;
+}
+
+.switch input:checked + .switch__slider::before {
+  background-color: rgb(22 22 22 / var(--carbonfox-alpha));
+}
+
+.switch input:focus + .switch__slider {
+  box-shadow: none;
+}
+
+.switch:has(:focus-visible) {
+  outline: 2px solid #33b1ff;
+  outline-offset: 2px;
+  border-radius: 40px;
+}
+
+.switch__slider {
+  background-color: #353535;
+}
+
+.switch__slider::before {
+  background-color: #7b7c7e;
+}
+
+.textarea {
+  background: rgb(37 37 37 / var(--carbonfox-alpha));
+  color: #b6b8bb;
+  border-color: #353535;
+}
+
+.footer__note {
+  color: #7b7c7e;
+}
+
+.footer__button {
+  color: #3ddbd9;
+}
+
+.footer__button:hover {
+  color: #25be6a;
+}
+
+.external-link {
+  color: #3ddbd9;
+}
+.external-link:hover {
+  color: #25be6a;
+}
+
+.file-msg {
+  color: #3ddbd9 !important;
+}
+
+#tidal-hifi-titlebar {
+  background: rgb(12 12 12 / var(--carbonfox-alpha)) !important;
+}
+
+[class*=sidebarWrapper] {
+  background-color: rgb(12 12 12 / var(--carbonfox-alpha));
+}
+
+#sidebar [class*=header_] {
+  background-color: rgb(12 12 12 / var(--carbonfox-alpha));
+}
+
+[class*=_sectionHeader_] {
+  background-color: rgb(12 12 12 / var(--carbonfox-alpha)) !important;
+}
+
+[class*=logoWrapper] {
+  background-color: rgb(12 12 12 / var(--carbonfox-alpha));
+}
+
+[class*=logoButton],
+[data-test=sidebar-logo] {
+  color: #f2f4f8;
+}
+
+[class*=versionBadge] {
+  color: #7b7c7e;
+}
+
+[class*=submenu_] {
+  background-color: rgb(37 37 37 / var(--carbonfox-alpha));
+  border-color: #353535;
+}
+
+[class*=submenuItem] {
+  color: #7b7c7e;
+}
+[class*=submenuItem]:hover {
+  background-color: #353535;
+  color: #f2f4f8;
+}
+
+[class*=collapseButton],
+[data-test=sidebar-collapse],
+[data-test=sidebar-expand] {
+  color: #7b7c7e;
+}
+[class*=collapseButton]:hover,
+[data-test=sidebar-collapse]:hover,
+[data-test=sidebar-expand]:hover {
+  color: #f2f4f8;
+  background-color: #353535;
+}
+
+[data-test=shortcut-list] [class*=shortcutItem] {
+  color: #b6b8bb;
+}
+[data-test=shortcut-list] [class*=shortcutItem]:hover {
+  background-color: #353535;
+}
+[data-test=shortcut-list] [class*=textWrapper] {
+  color: #b6b8bb;
+}
+
+[data-test=create-folder-or-playlist] {
+  color: #7b7c7e;
+}
+[data-test=create-folder-or-playlist]:hover {
+  color: #f2f4f8;
+  background-color: #353535;
+}
+
+[class*=_header_]::before {
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+  background: transparent !important;
+}
+
+[class*=logo_][class*=logoVisible] {
+  color: #f2f4f8;
+}
+
+[data-test=header-profile-menu-button],
+[class*=profileMenuButton] {
+  color: #7b7c7e;
+}
+[data-test=header-profile-menu-button]:hover,
+[class*=profileMenuButton]:hover {
+  color: #f2f4f8;
+}
+
+[class*=profilePicture] {
+  border-color: #2a2a2a;
+}
+
+[class*=searchField] {
+  background-color: rgb(12 12 12 / var(--carbonfox-alpha));
+  color: #f2f4f8;
+  border-color: transparent;
+  border-radius: 8px;
+}
+[class*=searchField]::placeholder {
+  color: #7b7c7e;
+}
+[class*=searchField]:focus, [class*=searchField]:focus-within {
+  border-color: #353535;
+  background-color: rgb(37 37 37 / var(--carbonfox-alpha));
+}
+
+[class*=searchFieldWithPopover] [class*=container] {
+  background-color: rgb(12 12 12 / var(--carbonfox-alpha));
+  border-color: transparent;
+  border-radius: 8px;
+}
+[class*=searchFieldWithPopover] [class*=container]:focus-within {
+  border-color: #353535;
+  background-color: rgb(37 37 37 / var(--carbonfox-alpha));
+}
+
+[data-test=search-popover-container] {
+  background-color: rgb(37 37 37 / var(--carbonfox-alpha));
+}
+
+.mainContent {
+  color: #f2f4f8;
+  background-color: rgb(22 22 22 / var(--carbonfox-alpha));
+}
+
+[class*=pageHeader] {
+  background-color: rgb(22 22 22 / var(--carbonfox-alpha));
+}
+
+[class*=feed_][data-test=home-page-feed],
+[class*=feed_] {
+  background-color: rgb(22 22 22 / var(--carbonfox-alpha));
+}
+
+[data-test=spotlight-banner] [class*=slide_] {
+  background-color: rgb(37 37 37 / var(--carbonfox-alpha));
+}
+[data-test=spotlight-banner] [class*=leftSection] {
+  color: #f2f4f8;
+}
+[data-test=spotlight-banner] [class*=brandingTitle] {
+  color: #f2f4f8;
+}
+
+[class*=cardContainer],
+[class*=card_] {
+  background-color: rgb(22 22 22 / var(--carbonfox-alpha));
+  transition: background-color 0.15s ease;
+}
+[class*=cardContainer]:hover,
+[class*=card_]:hover {
+  background-color: rgb(22 22 22 / var(--carbonfox-alpha));
+}
+
+[class*=textContent] {
+  color: #f2f4f8;
+}
+
+[class*=subtitle] {
+  color: #7b7c7e;
+}
+
+[class*=description] {
+  color: #b6b8bb;
+}
+
+[class*=headerTitleContainer] {
+  color: #f2f4f8;
+}
+
+[class*=headerText] {
+  color: #f2f4f8;
+}
+
+[class*=marketText] {
+  color: inherit;
+}
+
+[data-test=view-all-link],
+[class*=viewAllButton] {
+  color: #3ddbd9;
+}
+[data-test=view-all-link]:hover,
+[class*=viewAllButton]:hover {
+  color: #78a9ff;
+}
+
+[class*=overlay] [class*=css-75d7zy] {
+  background-color: #33b1ff;
+  color: #0c0c0c;
+}
+
+[class*=playButtonContainer] [class*=playButtonInner] {
+  background-color: #33b1ff;
+}
+
+[class*=headerContainer] {
+  background-color: rgb(22 22 22 / var(--carbonfox-alpha));
+}
+
+[class*=detailContainer] {
+  background-color: rgb(22 22 22 / var(--carbonfox-alpha));
+}
+
+[class*=sortButton] {
+  color: #7b7c7e;
+}
+[class*=sortButton]:hover {
+  color: #f2f4f8;
+}
+
+[class*=trackListWrapper] {
+  background-color: rgb(22 22 22 / var(--carbonfox-alpha));
+}
+
+[data-test=tracklist-row],
+[class*=trackRow_] {
+  color: #b6b8bb;
+}
+[data-test=tracklist-row]:hover,
+[class*=trackRow_]:hover {
+  background-color: #353535;
+  color: #f2f4f8;
+}
+[data-test=tracklist-row][data-status=playing], [data-test=tracklist-row][data-test-is-playing=true],
+[class*=trackRow_][data-status=playing],
+[class*=trackRow_][data-test-is-playing=true] {
+  color: #33b1ff;
+  background-color: #2a2a2a;
+}
+
+[class*=album] {
+  color: #b6b8bb;
+}
+
+[class*=favoriteButton] {
+  color: #7b7c7e;
+}
+[class*=favoriteButton]:hover {
+  color: #ee5396;
+}
+[class*=favoriteButton][aria-checked=true] {
+  color: #ee5396;
+}
+
+[data-test=explicit-badge],
+[class*=explicitBadge],
+[data-test=quality-badge-LOSSLESS],
+[class*=qualityBadgeContainer] {
+  color: #7b7c7e;
+}
+
+#footerPlayer [class*=background_] {
+  background-color: rgb(12 12 12 / var(--carbonfox-alpha)) !important;
+}
+
+[class*=playerContent] {
+  background-color: rgb(12 12 12 / var(--carbonfox-alpha));
+}
+
+[data-test=track-info],
+[class*=trackInfo] {
+  color: #f2f4f8;
+}
+
+[class*=artworkContainer],
+[data-test=player-details-toggle-now-playing] {
+  border-color: #2a2a2a;
+}
+
+[class*=trackContent] {
+  color: #f2f4f8;
+}
+
+[class*=titleArtistStack] {
+  color: #f2f4f8;
+}
+
+[class*=titleContainer] a {
+  color: #f2f4f8;
+}
+[class*=titleContainer] a:hover {
+  color: #78a9ff;
+}
+
+[class*=artist_] [class*=item_],
+[class*=artist_] [class*=link_] {
+  color: #b6b8bb;
+}
+[class*=artist_] [class*=item_]:hover,
+[class*=artist_] [class*=link_]:hover {
+  color: #78a9ff;
+}
+
+[class*=playingFromText] a {
+  color: #3ddbd9;
+}
+[class*=playingFromText] a:hover {
+  color: #78a9ff;
+}
+
+#footerPlayer [class*=actions_] button {
+  color: #7b7c7e;
+}
+#footerPlayer [class*=actions_] button:hover {
+  color: #f2f4f8;
+}
+
+[class*=blockButton] {
+  color: #7b7c7e;
+}
+[class*=blockButton]:hover {
+  color: #f2f4f8;
+}
+
+[class*=contextMenuButton] {
+  color: #7b7c7e;
+}
+[class*=contextMenuButton]:hover {
+  color: #f2f4f8;
+}
+
+[class*=centerSection] {
+  background-color: transparent;
+}
+
+#playbackControlBar button[aria-checked=true] path,
+[data-test=play-controls] button[aria-checked=true] path {
+  fill: #33b1ff;
+}
+#playbackControlBar button.withBackground, #playbackControlBar button[class*=activeButton],
+[data-test=play-controls] button.withBackground,
+[data-test=play-controls] button[class*=activeButton] {
+  background-color: rgb(37 37 37 / var(--carbonfox-alpha));
+}
+
+[class*=shuffleButton][aria-checked=true],
+[data-test=shuffle][aria-checked=true] {
+  color: #33b1ff;
+}
+
+[class*=repeatButton][aria-checked=true],
+[data-test=repeat][aria-checked=true] {
+  color: #33b1ff;
+}
+
+[class*=skipButton] {
+  color: #7b7c7e;
+}
+[class*=skipButton]:hover {
+  color: #f2f4f8;
+}
+
+[class*=playbackButton],
+[data-test=play-controls] [class*=playButtonInner] {
+  color: #f2f4f8;
+  background-color: transparent;
+}
+
+[class*=scrubberRow] {
+  color: #7b7c7e;
+}
+
+[class*=scrubberBar] {
+  background-color: #353535;
+}
+
+[class*=scrubberTime],
+[class*=scrubberTimeText] {
+  color: #7b7c7e;
+}
+
+[class*=fillingBlock][class*=indicator] {
+  background-color: #33b1ff;
+}
+
+[class*=fillingBlock][class*=range] {
+  background-color: #353535;
+}
+
+[class*=knob] {
+  background-color: #33b1ff;
+}
+
+[class*=toolTip] {
+  background-color: #2a2a2a;
+  color: #f2f4f8;
+}
+
+[class*=rightSection] {
+  color: #7b7c7e;
+}
+
+[class*=utilityContainer] {
+  color: #7b7c7e;
+}
+
+[class*=utilityButtons] button {
+  color: #7b7c7e;
+}
+[class*=utilityButtons] button:hover {
+  color: #f2f4f8;
+}
+
+[data-test=play-queue-button] {
+  color: #7b7c7e;
+  background-color: transparent !important;
+}
+[data-test=play-queue-button]:hover {
+  color: #f2f4f8;
+}
+[data-test=play-queue-button][aria-pressed=true] {
+  color: #33b1ff;
+}
+
+[data-test=volume] {
+  color: #7b7c7e;
+}
+[data-test=volume]:hover {
+  color: #f2f4f8;
+}
+
+[class*=sliderContainer] {
+  background-color: transparent;
+}
+
+[class*=newNowPlaying] {
+  background-color: rgb(22 22 22 / var(--carbonfox-alpha)) !important;
+  background-image: none !important;
+  --market-button-focus-ring-color: transparent;
+  --market-core-focus-ring-color: #33b1ff;
+}
+
+[data-test=now-playing-similar-tracks] [class*=radioSection] [class*=card_] {
+  background-color: transparent;
+}
+[data-test=now-playing-similar-tracks] [class*=radioSection] [class*=contentContainer] {
+  color: #b6b8bb;
+}
+[data-test=now-playing-similar-tracks] [class*=radioSection] [class*=subtitle] {
+  color: #7b7c7e;
+}
+
+[data-test=now-playing-mixes-and-radio-header],
+[data-test=now-playing-mixes-and-radio-scroll] {
+  background-color: transparent !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+[data-test=now-playing-mixes-and-radio-scroll] [class*=card] {
+  background-color: transparent !important;
+}
+
+#playQueueSidebar {
+  background-color: rgb(12 12 12 / var(--carbonfox-alpha)) !important;
+  background: rgb(12 12 12 / var(--carbonfox-alpha)) !important;
+  border: none !important;
+  border-color: transparent !important;
+  border-width: 0 !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+#playQueueSidebar > * {
+  background-color: rgb(12 12 12 / var(--carbonfox-alpha)) !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+[class*=playQueueWrapper] {
+  background-color: rgb(12 12 12 / var(--carbonfox-alpha));
+}
+
+[data-test=playqueue-header] {
+  background-color: rgb(12 12 12 / var(--carbonfox-alpha));
+}
+[data-test=playqueue-header] [class*=headerButton] {
+  color: #7b7c7e;
+}
+[data-test=playqueue-header] [class*=headerButton]:hover {
+  color: #f2f4f8;
+}
+
+[data-test=playqueue-save-button],
+[data-test=playqueue-close-button] {
+  color: #7b7c7e;
+}
+[data-test=playqueue-save-button]:hover,
+[data-test=playqueue-close-button]:hover {
+  color: #f2f4f8;
+}
+
+[data-test=playqueue-title] {
+  color: #f2f4f8;
+}
+
+[class*=playQueueItemsContainer],
+[data-test=playqueue] {
+  background-color: transparent;
+}
+
+[class*=playQueueItems] {
+  background-color: transparent;
+}
+
+#playQueueSidebar [class*=stickyHeader] {
+  background-color: rgb(12 12 12 / var(--carbonfox-alpha));
+  color: #f2f4f8;
+}
+
+[data-test=playqueue-item] {
+  color: #b6b8bb;
+  background-color: transparent;
+  border-bottom: 1px solid #2a2a2a;
+}
+[data-test=playqueue-item]:hover {
+  background-color: #353535;
+}
+[data-test=playqueue-item] img {
+  border-radius: 4px;
+}
+[data-test=playqueue-item] [class*=artist] {
+  color: #7b7c7e;
+}
+[data-test=playqueue-item] [class*=duration] {
+  color: #7b7c7e;
+}
+
+[class*=dragHandle] {
+  color: #7b7c7e;
+}
+[class*=dragHandle]:hover {
+  color: #f2f4f8;
+}
+
+[data-test=playqueue-item] [class*=more],
+[data-test=playqueue-item] [class*=menu] {
+  color: #7b7c7e;
+}
+[data-test=playqueue-item] [class*=more]:hover,
+[data-test=playqueue-item] [class*=menu]:hover {
+  color: #f2f4f8;
+}
+
+#playQueueSidebar [class*=actions_] button {
+  color: #7b7c7e;
+}
+#playQueueSidebar [class*=actions_] button:hover {
+  color: #f2f4f8;
+  background-color: #353535;
+}
+
+[class*=removeButton],
+[data-test=remove-button] {
+  color: #7b7c7e;
+}
+[class*=removeButton]:hover,
+[data-test=remove-button]:hover {
+  color: #ee5396;
+  background-color: #353535;
+}
+
+[class*=bottomGradient] {
+  background: linear-gradient(transparent, rgb(12 12 12 / var(--carbonfox-alpha)));
+}
+
+[data-test=playqueue-scroll]::-webkit-scrollbar {
+  width: 6px;
+}
+[data-test=playqueue-scroll]::-webkit-scrollbar-thumb {
+  background-color: #353535;
+  border-radius: 3px;
+}
+[data-test=playqueue-scroll]::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+[class*=notificationWrapper] {
+  color: #f2f4f8;
+}
+
+[class*=marketButton][class*=primary] {
+  background-color: #33b1ff;
+  color: #0c0c0c;
+}
+[class*=marketButton][class*=primary]:hover {
+  opacity: 0.9;
+}
+[class*=marketButton][class*=secondary] {
+  background-color: rgb(37 37 37 / var(--carbonfox-alpha));
+  color: #f2f4f8;
+  border-color: #353535;
+}
+[class*=marketButton][class*=secondary]:hover {
+  background-color: #353535;
+}
+[class*=marketButton][class*=tertiary] {
+  color: #7b7c7e;
+}
+[class*=marketButton][class*=tertiary]:hover {
+  color: #f2f4f8;
+  background-color: #353535;
+}
+
+#tidal-hifi-titlebar {
+  background: rgb(12 12 12 / var(--carbonfox-alpha)) !important;
+}

@@ -36,13 +36,14 @@ PKGS_GAMING=(mangohud)
 AUR_BASE=(swaylock-effects)
 AUR_UTILS=(warpd-wayland)
 AUR_OTP=(otpclient)
+AUR_TIDAL=(tidal-hifi-bin)
 
 # Componentes opcionales (etiqueta visible en el menú)
 C_NVIM="Neovim + LazyVim"
 C_UTILS="Utilidades: portapapeles, luz azul, swappy, warpd"
 C_VPN="VPN WireGuard"
 C_FLATPAK="Flatpak + Flathub"
-C_TIDAL="Tidal (Flatpak)"
+C_TIDAL="Tidal (AUR)"
 C_GAMING="Gaming: MangoHud"
 C_OTP="OTPClient (AUR)"
 
@@ -113,16 +114,10 @@ COMPONENTS=$(gum choose --no-limit --height 10 \
   --selected "$C_NVIM,$C_UTILS,$C_VPN,$C_FLATPAK,$C_GAMING" \
   "$C_NVIM" "$C_UTILS" "$C_VPN" "$C_FLATPAK" "$C_TIDAL" "$C_GAMING" "$C_OTP") || true
 
-# Tidal necesita Flatpak
-if selected "$C_TIDAL" && ! selected "$C_FLATPAK"; then
-  COMPONENTS+=$'\n'"$C_FLATPAK"
-  warn "Tidal necesita Flatpak: se agrega también."
-fi
-
 INSTALL_YAY=false
 if ! command -v yay >/dev/null; then
   section "AUR"
-  info "swaylock-effects (y warpd/OTPClient si los elegiste) vienen de AUR."
+  info "swaylock-effects (y warpd/OTPClient/Tidal si los elegiste) vienen de AUR."
   if gum confirm "¿Instalar yay para acceder a AUR?" --prompt.foreground "$ACCENT"; then
     INSTALL_YAY=true
   else
@@ -197,6 +192,7 @@ selected "$C_VPN"     && PKGS+=("${PKGS_VPN[@]}")
 selected "$C_FLATPAK" && PKGS+=("${PKGS_FLATPAK[@]}")
 selected "$C_GAMING"  && PKGS+=("${PKGS_GAMING[@]}")
 selected "$C_OTP"     && AUR+=("${AUR_OTP[@]}")
+selected "$C_TIDAL"   && AUR+=("${AUR_TIDAL[@]}")
 
 # pipewire-pulse reemplaza a pulseaudio; con --noconfirm el conflicto abortaría
 if pacman -Qq pulseaudio &>/dev/null; then
@@ -289,6 +285,13 @@ for f in .zshrc .p10k.zsh; do
 done
 ok "Symlinks creados: ${LINKED[*]}"
 
+# Tidal guarda cookies y caché en ~/.config/tidal-hifi: solo se enlaza themes/.
+if selected "$C_TIDAL"; then
+  mkdir -p "$HOME/.config/tidal-hifi"
+  link "$DOTFILES_DIR/tidal-hifi/themes" "$HOME/.config/tidal-hifi/themes"
+  ok "Tema Carbonfox de Tidal enlazado"
+fi
+
 # bat solo ve el tema carbonfox después de reconstruir su caché.
 command -v bat >/dev/null && step "Registrando el tema de bat" bat cache --build
 
@@ -324,9 +327,6 @@ fi
 if selected "$C_FLATPAK"; then
   step "Agregando Flathub" flatpak remote-add --user --if-not-exists flathub \
     https://dl.flathub.org/repo/flathub.flatpakrepo
-fi
-if selected "$C_TIDAL"; then
-  step "Instalando Tidal" flatpak install --user --noninteractive flathub com.mastermindzh.tidal-hifi
 fi
 
 # ============================================
