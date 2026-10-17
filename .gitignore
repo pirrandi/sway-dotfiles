@@ -7,3 +7,6 @@
 # Estado de usuario (se regenera con defaults)
 .config/scripts/contexts.txt
 .config/scripts/__pycache__/
+
+# Caché local de herramientas de IA
+.atl/
