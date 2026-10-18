@@ -127,6 +127,15 @@ alias la='eza -a --icons'
 alias lt='eza --tree --level=2 --icons'
 alias l='eza -l --icons'
 
+# Claude del trabajo: cuenta, config y memoria de Engram separadas de las personales.
+# Engram necesita su propio puerto: si no, los hooks escriben en el servidor personal.
+claude-work() {
+  CLAUDE_CONFIG_DIR="$HOME/.claude-work" \
+  ENGRAM_DATA_DIR="$HOME/.engram-work" \
+  ENGRAM_PORT=7438 \
+  command claude "$@"
+}
+
 # tmux — "main" es la sesión persistente
 alias tm='tmux new-session -A -s main'
 # Desde el teléfono: sesión agrupada con "main" (comparte ventanas, pero

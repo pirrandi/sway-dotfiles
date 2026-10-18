@@ -1,0 +1,97 @@
+{
+  "permissions": {
+    "deny": [
+      "Read(~/.claude/projects/**)",
+      "Read(~/.claude/sessions/**)",
+      "Read(~/.claude/file-history/**)",
+      "Read(~/.claude/paste-cache/**)",
+      "Read(~/.claude/shell-snapshots/**)",
+      "Read(~/.claude/history.jsonl)",
+      "Read(~/.claude/.credentials.json)",
+      "Read(~/.engram/**)",
+      "Read(~/.ssh/**)",
+      "Read(~/.gnupg/**)",
+      "Read(~/.config/gh/hosts.yml)",
+      "Read(~/Documents/**)",
+      "Read(**/.env)",
+      "Read(**/.env.*)",
+      "Edit(~/.claude/**)",
+      "Edit(~/.engram/**)",
+      "Edit(~/.dotfiles/**)"
+    ],
+    "defaultMode": "auto"
+  },
+  "model": "opus[1m]",
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$HOME/.config/scripts/claude-ws-mark.sh clear"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$HOME/.config/scripts/claude-ws-mark.sh set"
+          }
+        ]
+      }
+    ],
+    "Notification": [
+      {
+        "matcher": "permission_prompt|elicitation_dialog",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$HOME/.config/scripts/claude-ws-mark.sh set"
+          }
+        ]
+      }
+    ]
+  },
+  "enabledPlugins": {
+    "engram@engram": true
+  },
+  "extraKnownMarketplaces": {
+    "engram": {
+      "source": {
+        "source": "github",
+        "repo": "Gentleman-Programming/engram"
+      }
+    }
+  },
+  "outputStyle": "Gentleman",
+  "sandbox": {
+    "enabled": true,
+    "failIfUnavailable": true,
+    "allowUnsandboxedCommands": false,
+    "filesystem": {
+      "denyRead": [
+        "~/.claude/projects",
+        "~/.claude/sessions",
+        "~/.claude/file-history",
+        "~/.claude/paste-cache",
+        "~/.claude/shell-snapshots",
+        "~/.claude/history.jsonl",
+        "~/.claude/.credentials.json",
+        "~/.engram",
+        "~/.ssh",
+        "~/.gnupg",
+        "~/.config/gh/hosts.yml",
+        "~/Documents"
+      ]
+    }
+  },
+  "tui": "fullscreen",
+  "skipDangerousModePermissionPrompt": true,
+  "theme": "dark",
+  "switchModelsOnFlag": false
+}

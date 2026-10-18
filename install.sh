@@ -300,6 +300,16 @@ for client in vesktop Vencord Equicord BetterDiscord; do
   ok "Tema Carbonfox de Discord enlazado en $client"
 done
 
+# Claude del trabajo: solo se comparten instrucciones y skills, nunca credenciales,
+# transcripts ni plugins (Engram personal), que cada perfil genera por su cuenta.
+mkdir -p "$HOME/.claude" "$HOME/.claude-work" "$HOME/.engram-work"
+chmod 700 "$HOME/.claude" "$HOME/.claude-work" "$HOME/.engram-work"
+link "$DOTFILES_DIR/claude-work/settings.json" "$HOME/.claude-work/settings.json"
+for shared in CLAUDE.md skills output-styles agents; do
+  [ -e "$HOME/.claude/$shared" ] && link "$HOME/.claude/$shared" "$HOME/.claude-work/$shared"
+done
+ok "Perfil de Claude del trabajo listo (claude-work)"
+
 # bat solo ve el tema carbonfox después de reconstruir su caché.
 command -v bat >/dev/null && step "Registrando el tema de bat" bat cache --build
 
