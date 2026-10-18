@@ -292,6 +292,14 @@ if selected "$C_TIDAL"; then
   ok "Tema Carbonfox de Tidal enlazado"
 fi
 
+# Discord: el mismo CSS sirve para cualquier cliente modificado que esté instalado.
+for client in vesktop Vencord Equicord BetterDiscord; do
+  [ -d "$HOME/.config/$client" ] || continue
+  mkdir -p "$HOME/.config/$client/themes"
+  link "$DOTFILES_DIR/discord/themes/Carbonfox.theme.css" "$HOME/.config/$client/themes/Carbonfox.theme.css"
+  ok "Tema Carbonfox de Discord enlazado en $client"
+done
+
 # bat solo ve el tema carbonfox después de reconstruir su caché.
 command -v bat >/dev/null && step "Registrando el tema de bat" bat cache --build
 
